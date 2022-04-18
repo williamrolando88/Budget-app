@@ -11,6 +11,7 @@ class OperationsController < ApplicationController
 
   # GET /operations/new
   def new
+    @category = Category.find(params[:category_id])
     @operation = Operation.new
   end
 
@@ -20,6 +21,7 @@ class OperationsController < ApplicationController
   # POST /operations or /operations.json
   def create
     @operation = Operation.new(operation_params)
+    @operation.user_id = current_user.id
 
     respond_to do |format|
       if @operation.save
