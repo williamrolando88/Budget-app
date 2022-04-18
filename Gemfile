@@ -71,8 +71,8 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "devise", "~> 4.8"
+gem 'devise', '~> 4.8'
 
-gem "devise-jwt", "~> 0.9.0"
+gem 'devise-jwt', '~> 0.9.0'
 
-gem "cancancan", "~> 3.3"
+gem 'cancancan', '~> 3.3'
