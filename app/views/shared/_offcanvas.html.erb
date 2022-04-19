@@ -1,0 +1,8 @@
+<% if params[:controller] == 'categories' && params[:action] == 'index' %>
+  <div class='bg-blue-400'>
+    <div class="">
+      <%= link_to 'Edit profile', edit_user_registration_path %>
+      <%= button_to 'Sign out', destroy_user_session_path, :method => :delete %>
+    </div>
+  </div>
+<% end %>

@@ -1,29 +1,21 @@
 class OperationsController < ApplicationController
-  before_action :set_operation, only: %i[show edit update destroy]
-
-  # GET /operations or /operations.json
-  def index
-    @operations = Operation.all
-  end
-
-  # GET /operations/1 or /operations/1.json
-  def show; end
+  before_action :authenticate_user!
 
   # GET /operations/new
   def new
+    @category = Category.find(params[:category_id])
     @operation = Operation.new
   end
-
-  # GET /operations/1/edit
-  def edit; end
 
   # POST /operations or /operations.json
   def create
     @operation = Operation.new(operation_params)
+    @operation.user_id = current_user.id
+    @operation.category_id = params[:category_id]
 
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to operation_url(@operation), notice: 'Operation was successfully created.' }
+        format.html { redirect_to category_path(params[:category_id]), notice: 'Operation was successfully created.' }
         format.json { render :show, status: :created, location: @operation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,21 +24,9 @@ class OperationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /operations/1 or /operations/1.json
-  def update
-    respond_to do |format|
-      if @operation.update(operation_params)
-        format.html { redirect_to operation_url(@operation), notice: 'Operation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @operation }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @operation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /operations/1 or /operations/1.json
   def destroy
+    @operation = Operation.find(params[:id])
     @operation.destroy
 
     respond_to do |format|
@@ -56,11 +36,6 @@ class OperationsController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_operation
-    @operation = Operation.find(params[:id])
-  end
 
   # Only allow a list of trusted parameters through.
   def operation_params
