@@ -2,9 +2,7 @@
 
 <div id="operations">
   <% @operations.each do |operation| %>
-    <%= link_to operation, class:'' do %>
-      <%= render '/shared/operation_preview', operation: operation %>
-    <% end %>
+      <%= render 'operation_preview', operation: operation %>
   <% end %>
 </div>
 
