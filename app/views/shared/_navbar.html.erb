@@ -1,3 +1,7 @@
 <div class='bg-blue-400 flex p-2'>
-  <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Menu</button>
+  <% if params[:controller] == 'categories' && params[:action] == 'index' %>
+    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Menu</button>
+  <% else %>
+    <%= link_to 'Back', url_for(:back) %>
+  <% end %>
 </div>

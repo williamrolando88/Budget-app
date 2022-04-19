@@ -13,12 +13,10 @@
   </head>
 
   <body>
-
-  <% if user_signed_in? %>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/offcanvas' %>
-  <% end %>
-
+    <% if user_signed_in? %>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/offcanvas' %>
+    <% end %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
