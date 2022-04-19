@@ -4,6 +4,7 @@ class OperationsController < ApplicationController
   # GET /operations/new
   def new
     @category = Category.find(params[:category_id])
+    @operation = Operation.new
   end
   
   # POST /operations or /operations.json
