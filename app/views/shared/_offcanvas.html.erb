@@ -1,0 +1,11 @@
+<div class='bg-blue-400'>
+  <div class="offcanvas offcanvas-start bg-blue-400" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Offcanvas with backdrop</h5>
+      <button type="button" class="btn-close border bg-red-500" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <%= button_to 'Sign out', destroy_user_session_path, :method => :delete %>
+    </div>
+  </div>
+</div>
