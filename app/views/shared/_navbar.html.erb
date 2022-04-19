@@ -1,6 +1,6 @@
 <div class='bg-blue-400 flex p-2'>
   <% if params[:controller] == 'categories' && params[:action] == 'index' %>
-    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Menu</button>
+    <button class="btn" type="button">Menu</button>
   <% elsif params[:controller] == 'categories' && params[:action] == 'show' %>
     <%= link_to 'Back', categories_path %>
   <% else %>
