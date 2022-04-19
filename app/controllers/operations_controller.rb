@@ -6,7 +6,7 @@ class OperationsController < ApplicationController
     @category = Category.find(params[:category_id])
     @operation = Operation.new
   end
-  
+
   # POST /operations or /operations.json
   def create
     @operation = Operation.new(operation_params)
@@ -36,6 +36,7 @@ class OperationsController < ApplicationController
   end
 
   private
+
   # Only allow a list of trusted parameters through.
   def operation_params
     params.require(:operation).permit(:name, :amount, :user_id)
