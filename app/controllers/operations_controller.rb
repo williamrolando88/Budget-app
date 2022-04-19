@@ -7,18 +7,19 @@ class OperationsController < ApplicationController
     @category = Category.find(params[:category_id])
     @operation = Operation.new
   end
-
+  
   # GET /operations/1/edit
   def edit; end
-
+  
   # POST /operations or /operations.json
   def create
     @operation = Operation.new(operation_params)
     @operation.user_id = current_user.id
+    @operation.category_id = params[:category_id]
 
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to operation_url(@operation), notice: 'Operation was successfully created.' }
+        format.html { redirect_to category_path(params[:category_id]), notice: 'Operation was successfully created.' }
         format.json { render :show, status: :created, location: @operation }
       else
         format.html { render :new, status: :unprocessable_entity }
