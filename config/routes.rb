@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resources :operations, except: [:index, :show]
   end
   
-  root "categories#index"
+  root to: "categories#index"
 end

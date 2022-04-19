@@ -1,5 +1,6 @@
 class OperationsController < ApplicationController
   before_action :set_operation, only: %i[edit update destroy]
+  before_action :authenticate_user!
 
   # GET /operations/new
   def new
