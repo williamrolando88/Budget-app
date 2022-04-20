@@ -1,9 +1,49 @@
-<div class='bg-blue-400 flex p-2'>
-  <% if params[:controller] == 'categories' && params[:action] == 'index' %>
-    <button class="btn" type="button">Menu</button>
-  <% elsif params[:controller] == 'categories' && params[:action] == 'show' %>
-    <%= link_to 'Back', categories_path %>
-  <% else %>
-    <%= link_to 'Back', url_for(:back) %>
-  <% end %>
-</div>
+<% if params[:controller] != 'pages' %>
+  <div class='bg-gradient-to-b from-blue-400 to-blue-800 flex p-2 items-center justify-center relative' >
+    <div class='absolute inset-y-0 left-2 flex items-center'>
+      <% if user_signed_in? %>
+        <% if params[:controller] == 'categories' && params[:action] == 'index' %>
+          <button class="border text-white rounded-md px-2 py-1" type="button" data-controller='offcanvas' data-action='offcanvas#open'>
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        <% elsif params[:controller] == 'categories' && params[:action] == 'show' %>
+          <%= link_to categories_path, class:'flex items-center border text-white gap-2 rounded px-2 py-1' do %>
+            <i class="fa-solid fa-chevron-left"></i>
+            <p>Back</p>
+          <% end %>
+        <% else %>
+            <%= link_to url_for(:back), class:'flex items-center border text-white gap-2 rounded px-2 py-1' do %>
+              <i class="fa-solid fa-chevron-left"></i>
+              <p>Back</p>
+            <% end %>
+        <% end %>
+      <% else %>
+          <%= link_to url_for(:back), class:'flex items-center border text-white gap-2 rounded px-2 py-1' do %>
+              <i class="fa-solid fa-chevron-left"></i>
+              <p>Back</p>
+          <% end %>
+      <% end %>
+    </div>
+    <p class='text-white uppercase font-medium text-lg'>
+      <%- if controller_name == 'sessions' %>
+        Log in
+      <% end %>
+      <%- if controller_name == 'registrations' %>
+        Sign up
+      <% end %>
+      <% if params[:controller] == 'categories' && params[:action] == 'index' %>
+        Categories
+      <% end %>
+      <% if params[:controller] == 'categories' && params[:action] == 'new' %>
+        New Category
+      <% end %>
+      <% if params[:controller] == 'operations' && params[:action] == 'new' %>
+        New Operation
+      <% end %>
+      <% if params[:controller] == 'categories' && params[:action] == 'show' %>
+        <%= @category.name %>
+      <% end %>
+    </p>
+  </div>
+
+<% end %>

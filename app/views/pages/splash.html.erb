@@ -1,3 +1,5 @@
-<h1>Coin Purse</h1>
-<%= link_to "Sign up", new_user_registration_path %>
-<%= link_to "Log in", new_user_session_path %>
+<div class='flex flex-col h-screen w-screen items-center justify-center p-6 gap-4 text-center'>
+  <%= image_tag "logo.png", class:"", size:"200", alt: "logo" %>
+  <%= link_to "Log in", new_user_session_path, class:'py-2 bg-[#3778c2] text-neutral-50 hover:bg-slate-200 active:bg-slate-200 hover:text-neutral-900 active:text-neutral-900 w-full' %>
+  <%= link_to "Sign up", new_user_registration_path, class:'py-2 w-full hover:bg-[#3778c2] active:bg-[#3778c2] hover:text-neutral-50 active:text-neutral-50' %>
+</div>

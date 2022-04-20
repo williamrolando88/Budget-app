@@ -1,7 +1,15 @@
 <% if params[:controller] == 'categories' && params[:action] == 'index' %>
-  <div class='bg-blue-400'>
-    <div class="">
-      <%= link_to 'Edit profile', edit_user_registration_path %>
+  <div class='bg-blue-400 hidden absolute top-0 left-0 w-screen z-10 sm:w-[300px] flex flex-col px-4 py-2 transition' id='offcanvas'>
+    <button class='text-slate-100 text-xl self-end' data-controller='offcanvas' data-action='offcanvas#close'>
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <%= image_tag "default_profile_picture.png", class:"rounded-full self-center h-24 w-24 object-cover object-top", size:"100", alt: "user" %>
+    <h2 class='uppercase self-center text-white font-semibold text-xl'>
+      <%= @user.full_name %>
+    </h2>
+
+    <div class="border-t text-white px-2 py-1 mt-10">
       <%= button_to 'Sign out', destroy_user_session_path, :method => :delete %>
     </div>
   </div>

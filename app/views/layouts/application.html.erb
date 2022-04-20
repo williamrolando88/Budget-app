@@ -6,17 +6,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/9eae86040a.js" crossorigin="anonymous"></script>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class='bg-slate-100'>
+    <%= render 'shared/navbar' %>
+    
     <% if user_signed_in? %>
-      <%= render 'shared/navbar' %>
       <%= render 'shared/offcanvas' %>
+    <% else %>
+
     <% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <p class="mt-2 p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="mt-2 p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
