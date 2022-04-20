@@ -1,6 +1,8 @@
-<div class='bg-blue-400 flex p-2'>
+<div class='bg-blue-400 flex p-2' >
   <% if params[:controller] == 'categories' && params[:action] == 'index' %>
-    <button class="btn" type="button">Menu</button>
+    <button class="" type="button" data-controller='offcanvas' data-action='offcanvas#open'>
+      Menu
+    </button>
   <% elsif params[:controller] == 'categories' && params[:action] == 'show' %>
     <%= link_to 'Back', categories_path %>
   <% else %>
