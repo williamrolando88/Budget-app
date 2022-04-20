@@ -1,22 +1,21 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
+<div id="<%= dom_id category %>" class='flex border shadow p-2 gap-4 items-center bg-white'>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
-  </p>
-
-  <p>
-    <strong>Total operations:</strong>
-    <%= category.operations.count %>
-  </p>
-
-  <p>
-    <strong>Total amount:</strong>
-    <%= Operation.category_total(category.id) %>
-  </p>
-
+  <%= image_tag "coin.png", class:"grayscale border rounded-md bg-neutral-200", size:"100", alt: "logo" %>
+  <div class='grow'>
+    <p class='text-lg'>
+      <strong><%= category.name %></strong>
+    </p>
+    <p class='mt-4'>
+      <i class='text-sm text-gray-400'>Operations:</i>
+      <%= category.operations.count %>
+      <strong>
+      </strong>
+    </p>
+  </div>
+  <div class='text-center'>
+    <p>
+      <strong>Total:</strong>
+    </p>
+    <p>$ <%= Operation.category_total(category.id) %> USD</p>
+  </div>
 </div>

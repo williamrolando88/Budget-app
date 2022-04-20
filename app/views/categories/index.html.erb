@@ -1,6 +1,4 @@
-<h1>Categories</h1>
-
-<div id="categories">
+<div id="categories" class='flex flex-col pt-2 gap-2 px-2'>
   <% @categories.each do |category| %>
     <%= link_to category, class:'' do %>
       <%= render category %>
