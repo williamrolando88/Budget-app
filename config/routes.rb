@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'pages/splash'
+  get 'home', to:'pages#splash', as: 'pages/splash'
   devise_for :users
   devise_for :users, skip: :all
   resources :categories do
