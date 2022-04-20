@@ -6,13 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/9eae86040a.js" crossorigin="anonymous"></script>
     <%= javascript_importmap_tags %>
   </head>
 
   <body class='bg-slate-100'>
+    <%= render 'shared/navbar' %>
+    
     <% if user_signed_in? %>
-      <%= render 'shared/navbar' %>
       <%= render 'shared/offcanvas' %>
+    <% else %>
+
     <% end %>
 
     <p class="notice"><%= notice %></p>
