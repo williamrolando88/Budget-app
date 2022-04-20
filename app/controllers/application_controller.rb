@@ -14,8 +14,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def authenticate_user!(*_source)
-    unless user_signed_in?
-      redirect_to pages_splash_path
-    end
+    redirect_to pages_splash_path unless user_signed_in?
   end
 end
