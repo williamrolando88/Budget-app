@@ -1,3 +1,4 @@
+<div class='flex flex-col mt-4 gap-2 px-2'>
 <%= form_with model: [@category, @category.operations.build] do |form| %>
   <% if operation.errors.any? %>
     <div style="color: red">
@@ -10,23 +11,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+<div class='flex flex-col gap-2'>
+  <div class="flex flex-col">
+    <%= form.label "Name:", class:'italic' %>
+    <%= form.text_field :name, autofocus: true, class:'px-3 py-2 border bg-white' %>
   </div>
 
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
+  <div class="flex flex-col">
+    <%= form.label "Price:", class:'italic' %>
+    <%= form.text_field :amount, class:'px-3 py-2 border bg-white' %>
   </div>
 
-  <div>
-    <%= form.label 'Category', style: "display: block" %>
-    <p><%= @category.name %></p>
+  <div class="flex flex-col">
+    <%= form.label 'Category', class:'italic' %>
+    <p class='text-gray-400 italic'><%= @category.name %></p>
   </div>
 
-  <div>
-    <%= form.submit %>
+    <%= form.submit 'Create operation', class:'py-2 bg-[#5fb523] text-neutral-50 hover:bg-slate-200 active:bg-slate-200 hover:text-neutral-900 active:text-neutral-900 w-full' %>
   </div>
 <% end %>
+</div>
