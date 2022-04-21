@@ -1,0 +1,11 @@
+<div id="categories" class='flex flex-col pt-2 gap-2 px-2'>
+  <% @categories.each do |category| %>
+    <%= link_to category, class:'' do %>
+      <%= render category %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to new_category_path, class:'absolute bottom-10 right-10 p-3 shadow-md bg-[#5fb523] rounded-full font-black text-2xl flex justify-center items-center' do %>
+  <i class="fa-solid fa-plus text-white"></i>
+<% end %>

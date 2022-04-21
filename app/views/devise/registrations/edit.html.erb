@@ -1,0 +1,48 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="flex flex-col">
+    <%= f.label :email %>
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <fieldset>
+    <div class='flex items-end'>
+      <p>Update password</p>
+      <i class='text-sm'>leave blank if you don't want to change it</i>
+    </div>
+
+    <div class="flex flex-col">
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="flex flex-col">
+      <div class='flex gap-2'>
+        <%= f.label 'New password' %>
+        <% if @minimum_password_length %>
+          
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="flex flex-col">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

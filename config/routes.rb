@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'home', to:'pages#splash', as: 'pages/splash'
+  devise_for :users
+  devise_for :users, skip: :all
+  resources :categories do
+    resources :operations, only: [:new, :create, :destroy]
+  end
+  
+  root to: "categories#index"
 end

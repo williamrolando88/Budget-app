@@ -1,0 +1,11 @@
+<%= render @category %>
+
+<div id="operations" class='flex flex-col p-2 gap-4'>
+  <% @operations.each do |operation| %>
+      <%= render 'operation', operation: operation %>
+  <% end %>
+</div>
+
+<%= link_to new_category_operation_path(@category), class:'absolute bottom-10 right-10 p-3 shadow-md bg-[#5fb523] rounded-full font-black text-2xl flex justify-center items-center' do %>
+  <i class="fa-solid fa-plus text-white"></i>
+<% end %>
