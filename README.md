@@ -54,7 +54,7 @@ Here you are going to encounter the user info and sign out button
 
 <!-- There is no Live Demo available at the moment -->
 
-If you want to see a live demo of this project, [click here](https://salty-ridge-11900.herokuapp.com/home)
+If you want to see a live demo of this project, [click here](https://wr88-coin-purse.herokuapp.com/home)
 
 ## Authors
 
